@@ -1,0 +1,32 @@
+{
+  "builders": [{
+    "type": "azure-arm",
+
+    "client_id": "5ef40891-1154-4006-8af6-9c91ecd82b9e",
+    "client_secret": "EtY8Q~XLpjMKSLQwd.PGkwjofIy_DAmKo-k99aUQ",
+    "tenant_id": "7502bf24-a35b-47e5-ad12-ffae49456b7f",
+    "subscription_id": "366adf9a-5fd0-42ff-a588-050e4b3f9b15",
+
+    "managed_image_resource_group_name": "image",
+    "managed_image_name": "img2",
+
+    "os_type": "Linux",
+    "image_publisher": "OpenLogic",
+    "image_offer": "CentOS",
+    "image_sku": "7_9-gen2",
+
+    "azure_tags": {
+        "dept": "DevOps",
+        "task": "Packer Image Deployment to Azure"
+    },
+
+    "location": "East Asia",
+    "vm_size": "Standard_B1s"
+  }],
+  "provisioners": [{
+    "execute_command": "chmod +x {{ .Path }}; {{ .Vars }} sudo -E sh '{{ .Path }}'",
+    "script": "script.sh",
+    "inline_shebang": "/bin/sh -x",
+    "type": "shell"
+  }]
+}
