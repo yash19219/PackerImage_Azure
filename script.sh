@@ -36,6 +36,7 @@ source ~/.bashrc
 
 sudo useradd -m -U -d /opt/tomcat -s /bin/false tomcat
 cd /tmp
+sudo yum install -y ca-certificates
 wget https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.64/bin/apache-tomcat-9.0.64.tar.gz
 tar -xf apache-tomcat-9.0.64.tar.gz
 sudo mv apache-tomcat-9.0.64 /opt/tomcat/
